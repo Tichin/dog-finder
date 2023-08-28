@@ -1,9 +1,11 @@
 import { React, useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./DogList.css";
 
 function DogList({ dogs, getDogs }) {
   const [hasDogs, setHasDogs] = useState(false);
 
+  console.log('in Doglist dogs=', dogs);
   async function getDogList() {
     await getDogs();
     setHasDogs(true);
@@ -16,9 +18,11 @@ function DogList({ dogs, getDogs }) {
   return (
     <div className="DogList">
       {dogs.map((dog) =>
-        <div className="DogList-dog">
+        <div className="DogList-dog" key={dog.id}>
           {dog.name}
-          <img src={`../${dog.src}.jpg`} />
+          <Link to={`/dogs/${dog.name}`}>
+            <img src={`../${dog.src}.jpg`} alt={dog.name} />
+          </Link>
         </div>)}
     </div>
   );
