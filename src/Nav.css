@@ -1,0 +1,9 @@
+.Nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Nav-link{
+
+  margin-left: 20px;
+}
