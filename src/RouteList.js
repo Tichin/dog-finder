@@ -3,6 +3,21 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import DogList from './DogList';
 import DogDetails from './DogDetails';
 
+/** App routes.
+ *
+ * Props:
+ * - dogs: list of all dogs [{name: "whiskey", ...}, {}]
+ * - getDogs(): fetches dogs' info from API
+ *
+ * State:
+ * None
+ *
+ * App -> RouteList ->
+ *    <DogList {dogs} {getDogs} />,
+ *    <DogDetails {dogs} />,
+ *    <Navigate to="/dogs" />
+ */
+
 function RouteList({ dogs, getDogs }) {
   return (
     <Routes>

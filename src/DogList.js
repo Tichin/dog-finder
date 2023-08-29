@@ -2,19 +2,32 @@ import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./DogList.css";
 
+/** Renders individual dogs.
+ *
+ * Props:
+ * - dogs ([{name: "whiskey", ...}, {}])
+ * - getDogs(): fetches dogs' info from API
+ *
+ * State:
+ * hasDogs: false/true
+ *
+ * App -> RouteList -> DogList({ dogs, getDogs })
+ */
+
 function DogList({ dogs, getDogs }) {
   const [hasDogs, setHasDogs] = useState(false);
 
-  console.log('in Doglist dogs=', dogs);
+  //fetch dogs' info from API & set state
   async function getDogList() {
     await getDogs();
     setHasDogs(true);
   }
+  //TODO: handle in app
 
   if (hasDogs === false) {
     getDogList();
   }
-  //dogs = [{name: 'Whiskey', age: 5, src: 'whiskey', facts: Array(3)}, {}...}]
+
   return (
     <div className="DogList">
       {dogs.map((dog) =>
