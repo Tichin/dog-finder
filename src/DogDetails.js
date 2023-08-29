@@ -2,27 +2,18 @@ import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import "./DogDetails.css";
 
-/** Details for individual dog.
+/** Renders individual dog.
  *
  * Props:
- * - dogs: list of all dogs [{name: "whiskey", ...}, {}]
+ * - dog: data for individual dog {name: "whiskey", ...}
  *
  * State:
  * None
  *
- * App -> RouteList -> DogDetails( {dogs } )
+ * App -> RouteList -> DogData -> DogDetails( {dog } )
  */
 
-function DogDetails({ dogs }) {
-  const { name } = useParams();
-
-  //redirects to homepage if dogs list not populated
-  if (dogs.length === 0) {
-    return <Navigate to='/dogs' />;
-  }
-
-  const dog = dogs.find(dog => dog.name === name);
-
+function DogDetails({ dog }) {
   return (
     <div className="DogDetails">
       <p><b>Name:</b> {dog.name}</p>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import DogList from './DogList';
-import DogDetails from './DogDetails';
+import DogData from './DogData';
 
 /** App routes.
  *
@@ -13,7 +13,7 @@ import DogDetails from './DogDetails';
  *
  * App -> RouteList ->
  *    <DogList {dogs} {getDogs} />,
- *    <DogDetails {dogs} />,
+ *    <DogData {dogs} />,
  *    <Navigate to="/dogs" />
  */
 
@@ -21,7 +21,7 @@ function RouteList({ dogs }) {
   return (
     <Routes>
       <Route path="/dogs" element={<DogList dogs={dogs} />} />
-      <Route path="/dogs/:name" element={<DogDetails dogs={dogs} />} />
+      <Route path="/dogs/:name" element={<DogData dogs={dogs} />} />
       <Route path="*" element={<Navigate to='/dogs' />} />
     </Routes>
   );
