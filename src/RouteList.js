@@ -7,7 +7,6 @@ import DogDetails from './DogDetails';
  *
  * Props:
  * - dogs: list of all dogs [{name: "whiskey", ...}, {}]
- * - getDogs(): fetches dogs' info from API
  *
  * State:
  * None
@@ -18,10 +17,10 @@ import DogDetails from './DogDetails';
  *    <Navigate to="/dogs" />
  */
 
-function RouteList({ dogs, getDogs }) {
+function RouteList({ dogs }) {
   return (
     <Routes>
-      <Route path="/dogs" element={<DogList dogs={dogs} getDogs={getDogs} />} />
+      <Route path="/dogs" element={<DogList dogs={dogs} />} />
       <Route path="/dogs/:name" element={<DogDetails dogs={dogs} />} />
       <Route path="*" element={<Navigate to='/dogs' />} />
     </Routes>

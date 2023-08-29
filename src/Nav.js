@@ -15,7 +15,6 @@ const DEFAULT_DOGS_NAMES = ['Duke', 'Perry', 'Whiskey'];
  * App -> Nav -> <Link to="/dogs/dogName" />
  */
 
-//TODO: change key
 function Nav({ dogsNames = DEFAULT_DOGS_NAMES }) {
   return (
     <div className='Nav'>
@@ -23,7 +22,7 @@ function Nav({ dogsNames = DEFAULT_DOGS_NAMES }) {
         <Link
           to={`/dogs/${dogName}`}
           className='Nav-link'
-          key={index}>
+          key={dogName}>
           {dogName}
         </Link>)}
     </div>

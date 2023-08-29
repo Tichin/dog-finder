@@ -11,22 +11,10 @@ import "./DogList.css";
  * State:
  * hasDogs: false/true
  *
- * App -> RouteList -> DogList({ dogs, getDogs })
+ * App -> RouteList -> DogList({ dogs })
  */
 
-function DogList({ dogs, getDogs }) {
-  const [hasDogs, setHasDogs] = useState(false);
-
-  //fetch dogs' info from API & set state
-  async function getDogList() {
-    await getDogs();
-    setHasDogs(true);
-  }
-  //TODO: handle in app
-
-  if (hasDogs === false) {
-    getDogList();
-  }
+function DogList({ dogs }) {
 
   return (
     <div className="DogList">

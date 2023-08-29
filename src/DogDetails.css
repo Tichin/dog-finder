@@ -1,0 +1,6 @@
+.DogDetails-facts {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 40%;
+}
